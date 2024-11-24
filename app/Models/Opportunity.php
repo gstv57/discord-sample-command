@@ -19,4 +19,8 @@ class Opportunity extends Model
         'job_details',
         'last_sent_at',
     ];
+
+    protected $casts = [
+        'last_sent_at' => 'datetime',
+    ];
 }

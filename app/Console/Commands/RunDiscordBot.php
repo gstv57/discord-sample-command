@@ -12,9 +12,9 @@ use Illuminate\Console\Command;
 
 class RunDiscordBot extends Command
 {
-    protected $signature = 'discord-execute';
+    protected $signature = 'discord:start';
 
-    protected $description = 'Run the Discord bot';
+    private static ?Discord $discordInstance = null;
 
     public function __construct(private readonly DiscordCommandHandler $commandHandler)
     {
@@ -23,20 +23,17 @@ class RunDiscordBot extends Command
 
     public function handle(): void
     {
-        try {
-            $discord = new Discord([
-                'token'   => config('services.discord.token'),
-                'intents' => Intents::getDefaultIntents() | Intents::MESSAGE_CONTENT,
-            ]);
+        $discord = $this->getDiscordInstance();
 
-        } catch (IntentException $e) {
-            $this->error($e->getMessage());
+        if ($discord === null) {
             return;
         }
 
-        $discord->on('ready', function (Discord $discord) {
+        $discord->on('init', function (Discord $discord) {
             $commands = implode(', ', array_map(fn ($command) => $command->value, CommandEnum::cases()));
-            $this->info("Bot is ready! Listening to commands: $commands");
+
+            $this->info("Commands: $commands");
+
             $discord->on(Event::MESSAGE_CREATE, function (Message $message, Discord $discord) {
                 $commandContent = $message->content;
 
@@ -44,12 +41,32 @@ class RunDiscordBot extends Command
                     if (!preg_match('/^' . preg_quote($command->value, '/') . '\b/', $commandContent)) {
                         continue;
                     }
+
                     $this->commandHandler->handle($command, $message, $discord);
+
                     return;
                 }
             });
         });
 
         $discord->run();
+    }
+
+    private function getDiscordInstance(): ?Discord
+    {
+        if (self::$discordInstance === null) {
+            try {
+                self::$discordInstance = new Discord([
+                    'token'   => config('services.discord.token'),
+                    'intents' => Intents::getDefaultIntents() | Intents::MESSAGE_CONTENT,
+                ]);
+            } catch (IntentException $e) {
+                $this->error($e->getMessage());
+
+                return null;
+            }
+        }
+
+        return self::$discordInstance;
     }
 }

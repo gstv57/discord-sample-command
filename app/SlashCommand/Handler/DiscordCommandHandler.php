@@ -10,7 +10,6 @@ use Discord\Parts\Channel\Message;
 class DiscordCommandHandler
 {
     private DiscordCommandFactory $commandFactory;
-
     public function __construct(DiscordCommandFactory $commandFactory)
     {
         $this->commandFactory = $commandFactory;

@@ -38,4 +38,8 @@ return [
     'discord' => [
         'token' => env('DISCORD_BOT_TOKEN'),
     ],
+
+    'steam' => [
+        'token' => env('STEAM_API'),
+    ],
 ];

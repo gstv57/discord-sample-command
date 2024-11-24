@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Services\Seek;
 
-use App\Jobs\CrawlingPage;
 use DOMDocument;
 use DOMXPath;
-use Illuminate\Console\Command;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Queue\Queueable;
 
-class GetJobsOnPage extends Command
+class GetJobsOnPage implements ShouldQueue
 {
-    protected $signature = 'scrape-page';
+    use Queueable;
 
-    protected $description = 'Scrape a page';
-
-    public string $search = 'laravel-jobs';
+    public function __construct(
+        public string $keyword
+    ) {
+    }
 
     public function handle(): void
     {
@@ -22,7 +23,7 @@ class GetJobsOnPage extends Command
 
     protected function scrapeJobPages(int $page = 1): void
     {
-        $url = "https://www.seek.com.au/$this->search?page=$page";
+        $url = "https://www.seek.com.au/$this->keyword?page=$page";
 
         $html = file_get_contents($url);
 
