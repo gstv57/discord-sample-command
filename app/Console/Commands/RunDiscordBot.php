@@ -31,12 +31,11 @@ class RunDiscordBot extends Command
 
         $discord->on('init', function (Discord $discord) {
             $commands = implode(', ', array_map(fn ($command) => $command->value, CommandEnum::cases()));
+            $discord->getChannel(config('services.discord.channel_id'))->sendMessage('Bot has booted successfully!');
 
             $this->info("Commands: $commands");
-
             $discord->on(Event::MESSAGE_CREATE, function (Message $message, Discord $discord) {
                 $commandContent = $message->content;
-
                 foreach (CommandEnum::cases() as $command) {
                     if (!preg_match('/^' . preg_quote($command->value, '/') . '\b/', $commandContent)) {
                         continue;

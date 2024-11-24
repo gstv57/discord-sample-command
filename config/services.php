@@ -34,12 +34,8 @@ return [
             'channel'              => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
     'discord' => [
         'token' => env('DISCORD_BOT_TOKEN'),
-    ],
-
-    'steam' => [
-        'token' => env('STEAM_API'),
+        'channel_id' => env('DISCORD_CHANNEL_ID'),
     ],
 ];
