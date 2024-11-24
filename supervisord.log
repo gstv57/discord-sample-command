@@ -19,3 +19,41 @@
 2024-11-24 17:08:10,845 INFO success: discord-bot entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2024-11-24 17:08:10,845 INFO success: laravel-queue-worker entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2024-11-24 17:08:10,845 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-11-24 17:18:48,176 WARN received SIGQUIT indicating exit request
+2024-11-24 17:18:48,176 INFO waiting for discord-bot, laravel-queue-worker, php-fpm to die
+2024-11-24 17:18:48,181 INFO stopped: php-fpm (exit status 0)
+2024-11-24 17:18:48,190 WARN stopped: laravel-queue-worker (exit status 255)
+2024-11-24 17:18:48,194 WARN stopped: discord-bot (terminated by SIGTERM)
+2024-11-24 17:19:46,332 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2024-11-24 17:19:46,334 INFO supervisord started with pid 1
+2024-11-24 17:19:47,337 INFO spawned: 'discord-bot' with pid 7
+2024-11-24 17:19:47,340 INFO spawned: 'laravel-queue-worker' with pid 8
+2024-11-24 17:19:47,343 INFO spawned: 'php-fpm' with pid 9
+2024-11-24 17:19:47,373 WARN exited: laravel-queue-worker (exit status 255; not expected)
+2024-11-24 17:19:47,374 WARN exited: discord-bot (exit status 255; not expected)
+2024-11-24 17:19:48,419 INFO spawned: 'discord-bot' with pid 12
+2024-11-24 17:19:48,420 INFO spawned: 'laravel-queue-worker' with pid 13
+2024-11-24 17:19:48,421 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-11-24 17:19:48,444 WARN exited: laravel-queue-worker (exit status 255; not expected)
+2024-11-24 17:19:48,444 WARN exited: discord-bot (exit status 255; not expected)
+2024-11-24 17:19:50,447 INFO spawned: 'discord-bot' with pid 14
+2024-11-24 17:19:50,449 INFO spawned: 'laravel-queue-worker' with pid 15
+2024-11-24 17:19:50,465 WARN exited: discord-bot (exit status 255; not expected)
+2024-11-24 17:19:50,465 WARN exited: laravel-queue-worker (exit status 255; not expected)
+2024-11-24 17:19:53,469 INFO spawned: 'discord-bot' with pid 16
+2024-11-24 17:19:53,470 INFO spawned: 'laravel-queue-worker' with pid 17
+2024-11-24 17:19:53,487 WARN exited: discord-bot (exit status 255; not expected)
+2024-11-24 17:19:53,487 WARN exited: laravel-queue-worker (exit status 255; not expected)
+2024-11-24 17:19:53,487 INFO gave up: discord-bot entered FATAL state, too many start retries too quickly
+2024-11-24 17:19:53,487 INFO gave up: laravel-queue-worker entered FATAL state, too many start retries too quickly
+2024-11-24 17:20:16,510 WARN received SIGQUIT indicating exit request
+2024-11-24 17:20:16,510 INFO waiting for php-fpm to die
+2024-11-24 17:20:16,514 INFO stopped: php-fpm (exit status 0)
+2024-11-24 17:21:55,645 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2024-11-24 17:21:55,647 INFO supervisord started with pid 1
+2024-11-24 17:21:56,650 INFO spawned: 'discord-bot' with pid 7
+2024-11-24 17:21:56,653 INFO spawned: 'laravel-queue-worker' with pid 8
+2024-11-24 17:21:56,657 INFO spawned: 'php-fpm' with pid 9
+2024-11-24 17:21:57,833 INFO success: discord-bot entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-11-24 17:21:57,833 INFO success: laravel-queue-worker entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-11-24 17:21:57,833 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

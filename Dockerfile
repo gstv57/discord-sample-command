@@ -31,6 +31,7 @@ COPY --chown=www-data:www-data . /var/www
 RUN chown -R www-data:www-data storage bootstrap/cache
 RUN chmod -R 775 storage bootstrap/cache
 RUN touch database/database.sqlite
+
 RUN php artisan migrate --seed
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
