@@ -57,3 +57,8 @@
 2024-11-24 17:21:57,833 INFO success: discord-bot entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2024-11-24 17:21:57,833 INFO success: laravel-queue-worker entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2024-11-24 17:21:57,833 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-11-24 17:32:47,231 WARN received SIGQUIT indicating exit request
+2024-11-24 17:32:47,231 INFO waiting for discord-bot, laravel-queue-worker, php-fpm to die
+2024-11-24 17:32:47,240 INFO stopped: php-fpm (exit status 0)
+2024-11-24 17:32:47,255 INFO stopped: laravel-queue-worker (exit status 0)
+2024-11-24 17:32:47,263 WARN stopped: discord-bot (terminated by SIGTERM)

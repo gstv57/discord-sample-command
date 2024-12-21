@@ -5,7 +5,7 @@
 - Docker
 - Docker Compose
 
-## Steps to Setup
+## Steps to Set up
 
 1. Clone this repository
     ```sh
